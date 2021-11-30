@@ -1,0 +1,13 @@
+version: '3'
+services:
+    flask:
+        build: .
+        # by default, flask runs on port 5000
+        ports:
+            - "5000:5000"
+        # flask app runs out of /at in container
+        volumes:
+            - .:/at
+        environment:
+            # flask will watch for and auto-reload modified files
+            FLASK_ENV: development
